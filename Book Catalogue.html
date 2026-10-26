@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="Book Style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Catalogue - Library Management System</title>
+</head>
+<body>
+
+  <!-- ===== Header & Navigation ===== -->
+  <div id="header">
+    <img src="Library.png" alt="Library Management System logo" width="100">
+    <h1>Library Management System</h1>
+    <p><i>Find, browse and borrow books easily.</i></p>
+
+    <div id="navigation">
+      <a href="index.html">Home</a> |
+      <a href="catalog.html">Book Catalogue</a> |
+      <a href="manage-books.html">Manage Books</a> |
+      <a href="borrow-return.html">Borrow &amp; Return</a>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== Page Title ===== -->
+  <div id="page-title">
+    <h2>Book Catalogue</h2>
+    <p>
+      Browse the <b>complete collection</b> of our library. Search by
+      <i>title</i> or <i>author</i>, and filter books by <b><i>category</i></b>
+      to see whether a book is available or currently borrowed.
+    </p>
+  </div>
+
+  <!-- ===== Search & Filter ===== -->
+  <div id="search-section">
+    <h3>Search Books</h3>
+
+    <label for="searchBox">Search (title or author):</label>
+    <input type="text" id="searchBox" name="searchBox" placeholder="e.g. Clean Code or Robert Martin">
+    <br><br>
+
+    <label for="categoryFilter">Category:</label>
+    <input type="text" id="categoryFilter" name="categoryFilter" list="categories" placeholder="Select a category">
+    <datalist id="categories">
+      <option value="All">
+      <option value="Science">
+      <option value="Technology">
+      <option value="Fiction">
+      <option value="History">
+    </datalist>
+    <br><br>
+
+    <label>
+      <input type="checkbox" id="availableOnly" name="availableOnly">
+      Show available books only
+    </label>
+    <br><br>
+
+    <button type="button" id="searchBtn">Search</button>
+    <button type="reset" id="resetBtn">Reset</button>
+  </div>
+
+  <hr>
+
+  <!-- ===== Summary ===== -->
+  <div id="summary">
+    <h3>Catalogue Summary</h3>
+    <p>
+      Total Books: <span id="totalBooks"><b>4</b></span> &nbsp;|&nbsp;
+      Available: <span id="availableBooks"><b>3</b></span> &nbsp;|&nbsp;
+      Borrowed: <span id="borrowedBooks"><b>1</b></span>
+    </p>
+  </div>
+
+  <hr>
+
+  <!-- ===== Book List ===== -->
+  <div id="book-list">
+    <h3>Available Books</h3>
+
+    <!-- Book 1 -->
+    <div class="book-card" id="book1">
+      <img src="Clean code.jpg" alt="Cover of Clean Code" width="120" height="160">
+      <h4>Clean Code</h4>
+      <p>
+        <b>Author:</b> Robert C. Martin<br>
+        <b>Category:</b> <span class="category">Technology</span><br>
+        <b>Status:</b> <span class="status available"><b>Available</b></span>
+      </p>
+      <p><i>A handbook of agile software craftsmanship.</i></p>
+      <a href="book-details.html?id=1">View Details</a>
+      <button type="button">Borrow</button>
+    </div>
+    <br>
+
+    <!-- Book 2 -->
+    <div class="book-card" id="book2">
+      <img src="Brief.jpg" alt="Cover of A Brief History of Time" width="120" height="160">
+      <h4>A Brief History of Time</h4>
+      <p>
+        <b>Author:</b> Stephen Hawking<br>
+        <b>Category:</b> <span class="category">Science</span><br>
+        <b>Status:</b> <span class="status available"><b>Available</b></span>
+      </p>
+      <p><i>From the Big Bang to black holes.</i></p>
+      <a href="book-details.html?id=2">View Details</a>
+      <button type="button">Borrow</button>
+    </div>
+    <br>
+
+    <!-- Book 3 -->
+    <div class="book-card" id="book3">
+      <img src="Alchemist.jpg" alt="Cover of The Alchemist" width="120" height="160">
+      <h4>The Alchemist</h4>
+      <p>
+        <b>Author:</b> Paulo Coelho<br>
+        <b>Category:</b> <span class="category">Fiction</span><br>
+        <b>Status:</b> <span class="status borrowed"><b>Borrowed</b></span>
+      </p>
+      <p><i>A shepherd boy's journey in search of his dream.</i></p>
+      <a href="book-details.html?id=3">View Details</a>
+      <button type="button" disabled>Not Available</button>
+    </div>
+    <br>
+
+    <!-- Book 4 -->
+    <div class="book-card" id="book4">
+      <img src="Sapiens.jpg" alt="Cover of Sapiens" width="120" height="160">
+      <h4>Sapiens: A Brief History of Humankind</h4>
+      <p>
+        <b>Author:</b> Yuval Noah Harari<br>
+        <b>Category:</b> <span class="category">History</span><br>
+        <b>Status:</b> <span class="status available"><b>Available</b></span>
+      </p>
+      <p><i>How Homo sapiens came to dominate the world.</i></p>
+      <a href="book-details.html?id=4">View Details</a>
+      <button type="button">Borrow</button>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- ===== Footer ===== -->
+  <div id="footer">
+    <p>
+      <b>Library Management System</b> &copy; 2026<br>
+      Web Technologies Project &ndash; Group 03, Section Y<br>
+      American International University-Bangladesh (AIUB)
+    </p>
+    <p>
+      <a href="index.html">Back to Home</a> |
+      <a href="mailto:library@example.com">Contact Librarian</a>
+    </p>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library - Manage Books</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="bar">
+    <h1>Library Management</h1>
+    <nav><a class="active" href="index.html">Manage Books</a><a href="add-book.html">Add Book</a></nav>
+  </div></header>
+
+  <main>
+    <div class="stats">
+      <div class="stat"><b id="total">0</b><span>Total books</span></div>
+      <div class="stat ok"><b id="avail">0</b><span>Available</span></div>
+      <div class="stat warn"><b id="issued">0</b><span>Issued</span></div>
+    </div>
+
+    <div class="card">
+      <div class="tools">
+        <input id="search" type="search" placeholder="Search by title, author or category" aria-label="Search books">
+        <select id="statusFilter" aria-label="Filter by status">
+          <option>All</option><option>Available</option><option>Issued</option>
+        </select>
+        <a class="btn" href="add-book.html">Add book</a>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Title</th><th>Author</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead>
+          <tbody id="bookBody"></tbody>
+        </table>
+      </div>
+      <p class="empty" id="empty" hidden>Kono boi paoa jayni. Notun boi add koro.</p>
+    </div>
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="list.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply for a Book | City Public Library</title>
+<link rel="stylesheet" href="../css/user/apply.css">
+</head>
+<body>
+
+<h1>Apply for a Book</h1>
+<ul class="nav">
+  <li><a href="home.html">Home</a></li>
+  <li><a href="apply.html" aria-current="page">Apply for a Book</a></li>
+  <li><a href="collect.html">Collect with Token</a></li>
+  <li><a href="notices.html">My Notices</a></li>
+  <li><a href="../index.html">Main Page</a></li>
+</ul>
+<hr>
+
+<form id="applyForm">
+  <fieldset>
+    <legend>Your Details</legend>
+    <p><label for="name">Full name</label><br>
+    <input type="text" id="name" maxlength="80" required></p>
+    <p><label for="mid">Member ID</label><br>
+    <input type="text" id="mid" pattern="[A-Za-z0-9\-]{3,20}" title="3 to 20 letters, numbers or hyphens" required></p>
+    <p><label for="mail">Email</label><br>
+    <input type="email" id="mail" required></p>
+  </fieldset>
+  <fieldset>
+    <legend>Book Wanted</legend>
+    <p><label for="bt">Book title</label><br>
+    <input type="text" id="bt" required></p>
+    <p><label for="bc">Book code</label><br>
+    <input type="text" id="bc" required></p>
+  </fieldset>
+  <button type="submit">Send Application</button>
+  <button type="reset">Clear</button>
+</form>
+
+<p id="msg" role="status"></p>
+
+<script src="../js/user/apply.js"></script>
+</body>
+</html>

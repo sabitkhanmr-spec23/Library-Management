@@ -34,7 +34,6 @@ h1, h2, h3 {
     text-align: center;
 }
 
-
 #header h2 {
     color: white;
 }
@@ -98,7 +97,6 @@ input[type="text"]:focus {
     background-color: #fff2c7;
 }
 
-
 button {
     padding: 8px 15px;
     background-color: #1f3a5f;
@@ -111,6 +109,7 @@ button:hover {
     background-color: #f2c14e;
     color: black;
 }
+
 
 #dashboard {
     padding: 20px;
@@ -141,11 +140,9 @@ button:hover {
     border-radius: 50%;
 }
 
-
 .card:hover {
     background-color: #dce6f1;
 }
-
 
 #shortcuts {
     padding: 20px;
@@ -167,6 +164,7 @@ button:hover {
     margin-bottom: 20px;
 }
 
+
 h2 + p {
     color: #555;
 }
@@ -180,6 +178,7 @@ h2 + p {
 .shortcut:hover {
     background-color: #eef3f8;
 }
+
 
 #footer {
     padding: 15px;
@@ -204,12 +203,11 @@ h2 + p {
     text-decoration: none;
 }
 
-
+/* Hover */
 #top:hover {
     background-color: #1f3a5f;
     color: white;
 }
-
 
 #catalog, #manage, #return {
     padding: 20px;
@@ -234,17 +232,16 @@ td {
     border: 1px solid #ccc;
 }
 
+
 .error {
     color: red;
     font-size: 14px;
 }
 
-
 input[type="date"], select {
     padding: 8px;
     border: 1px solid gray;
 }
-
 
 input[type="submit"] {
     padding: 8px 15px;
@@ -260,7 +257,6 @@ input[type="submit"]:hover {
 }
 
 
-
 #authBox {
     width: 400px;
     max-width: 90%;
@@ -269,6 +265,7 @@ input[type="submit"]:hover {
     background-color: white;
     border: 1px solid #ccc;
 }
+
 
 input[type="password"] {
     padding: 8px;

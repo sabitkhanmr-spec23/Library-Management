@@ -1,4 +1,4 @@
-
+/
 let users = [
   { username: "admin",   password: "admin123" },
   { username: "student", password: "student1" },
@@ -31,9 +31,8 @@ function togglePassword(inputId, checkboxId) {
 }
 
 
-
 function showGreeting() {
-  let hour = new Date().getHours();      
+  let hour = new Date().getHours();      // current hour, 0 to 23
   let greeting;
 
   if (hour < 12) {
@@ -47,12 +46,13 @@ function showGreeting() {
   document.getElementById("greeting").innerHTML = greeting + " Please login to continue.";
 }
 
-
 function validateLogin() {
-  
+ 
   let username = document.getElementById("loginUser").value;
   let password = document.getElementById("loginPass").value;
-  let valid = true;                      
+  let valid = true;                      // becomes false if any rule fails
+
+
   clearErrors(["loginUser", "loginPass"]);
   document.getElementById("loginMessage").innerHTML = "";
 
@@ -65,6 +65,7 @@ function validateLogin() {
     valid = false;
   }
 
+  
   if (password == "") {
     showError("loginPass", "Password is required");
     valid = false;
@@ -78,15 +79,15 @@ function validateLogin() {
     return false;
   }
 
- 
+  
   for (let i = 0; i < users.length; i++) {
     if (users[i].username == username && users[i].password == password) {
       alert("Login successful! Welcome, " + username);
-      return true;                    
+      return true;                       // go to the Home page
     }
   }
 
-  
+ 
   let message = document.getElementById("loginMessage");
   message.innerHTML = "Invalid username or password";
   message.style.color = "red";
@@ -94,17 +95,15 @@ function validateLogin() {
 }
 
 
-
 function validateRegister() {
-  
+
   let fullName = document.getElementById("fullName").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
   let confirmPassword = document.getElementById("confirmPassword").value;
-  let terms = document.getElementById("terms").checked;   
-  let valid = true;                     
+  let terms = document.getElementById("terms").checked;   // true if ticked
+  let valid = true;                      // becomes false if any rule fails
 
-  
   clearErrors(["fullName", "email", "password", "confirmPassword"]);
   document.getElementById("termsError").innerHTML = "";
 
@@ -117,7 +116,6 @@ function validateRegister() {
     valid = false;
   }
 
- 
   if (email == "") {
     showError("email", "Email is required");
     valid = false;
@@ -134,7 +132,6 @@ function validateRegister() {
     valid = false;
   }
 
-
   if (confirmPassword == "") {
     showError("confirmPassword", "Please confirm your password");
     valid = false;
@@ -142,6 +139,7 @@ function validateRegister() {
     showError("confirmPassword", "Passwords do not match");
     valid = false;
   }
+
 
   if (terms == false) {
     document.getElementById("termsError").innerHTML = "You must agree to continue";

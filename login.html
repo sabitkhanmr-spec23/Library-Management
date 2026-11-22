@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Library Management System</title>
 
+   
     <link rel="stylesheet" href="Library.css">
 </head>
 <body>
 
-    
+   
     <header id="header">
         <h2>Library Management System</h2>
     </header>
 
-   
+    
     <main id="main">
 
         <div id="authBox">
             <h1>Login</h1>
 
-         
+          
             <h3 id="greeting"></h3>
 
            
-            
             <form action="Library.html" onsubmit="return validateLogin()">
 
                 <label for="loginUser">Username:</label><br>
@@ -37,7 +37,6 @@
                 <span id="loginPassError" class="error"></span>
                 <br>
 
-               
                 
                 <input type="checkbox" id="showPass" onclick="togglePassword('loginPass', 'showPass')">
                 <label for="showPass" style="font-weight: normal;">Show password</label>
@@ -46,8 +45,7 @@
                 <input type="submit" value="Login">
             </form>
 
-           
-            
+          
             <p id="loginMessage" class="error"></p>
 
             <p>New user? <a href="register.html">Create an account</a></p>
@@ -58,12 +56,13 @@
 
     </main>
 
+  
     <footer id="footer">
         <p><b>Web Technologies</b> | Group 03 | Section Y</p>
         <p>American International University-Bangladesh (AIUB)</p>
     </footer>
 
-    
+   
     <script src="auth.js"></script>
    
     <script>showGreeting();</script>

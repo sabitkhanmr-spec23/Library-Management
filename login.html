@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Library Management System</title>
+
+    <!-- Link the external CSS file -->
+    <link rel="stylesheet" href="Library.css">
+</head>
+<body>
+
+    <!-- ===== HEADER: only the title (no menu before login) ===== -->
+    <header id="header">
+        <h2>Library Management System</h2>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main">
+
+        <div id="authBox">
+            <h1>Login</h1>
+
+            <!-- JS showGreeting() writes the greeting here -->
+            <h3 id="greeting"></h3>
+
+            <!-- action="Library.html": when validateLogin() returns true, the browser opens the Home page.
+                 When it returns false, the form is not sent and the user stays here. -->
+            <form action="Library.html" onsubmit="return validateLogin()">
+
+                <label for="loginUser">Username:</label><br>
+                <input type="text" id="loginUser" placeholder="Enter username">
+                <span id="loginUserError" class="error"></span>
+                <br><br>
+
+                <label for="loginPass">Password:</label><br>
+                <input type="password" id="loginPass" placeholder="Enter password">
+                <span id="loginPassError" class="error"></span>
+                <br>
+
+                <!-- onclick runs togglePassword() to show or hide the password -->
+                <input type="checkbox" id="showPass" onclick="togglePassword('loginPass', 'showPass')">
+                <label for="showPass" style="font-weight: normal;">Show password</label>
+                <br><br>
+
+                <input type="submit" value="Login">
+            </form>
+
+            <!-- JS writes "Invalid username or password" here -->
+            <p id="loginMessage" class="error"></p>
+
+            <p>New user? <a href="register.html">Create an account</a></p>
+
+            <!-- Demo account, so you can test the login -->
+            <p><b>Demo login:</b> admin / admin123</p>
+        </div>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer id="footer">
+        <p><b>Web Technologies</b> | Group 03 | Section Y</p>
+        <p>American International University-Bangladesh (AIUB)</p>
+    </footer>
+
+    <!-- Link the JavaScript file for the login and register pages -->
+    <script src="auth.js"></script>
+    <!-- Show the greeting when the page opens -->
+    <script>showGreeting();</script>
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+/* Universal Selector and Box Sizing */
+* {
+    box-sizing: border-box;
+}
+
+/* Element Selectors */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: #1f3a5f;
+}
+
+/* Grouping Selector */
+h1, h2, h3 {
+    color: #1f3a5f;
+}
+
+/* ID Selector and Sticky Position */
+#header {
+    position: sticky;
+    top: 0;
+    background-color: #1f3a5f;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Descendant Combinator */
+#header h2 {
+    color: white;
+}
+
+#navbar a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+/* Hover Pseudo-Class */
+#navbar a:hover {
+    background-color: #f2c14e;
+    color: black;
+}
+
+/* Static Position */
+#main {
+    position: static;
+    width: 90%;
+    margin: auto;
+}
+
+/* Class Selector */
+.highlight {
+    color: #1f3a5f;
+    font-weight: bold;
+}
+
+/* Welcome Section */
+#welcome {
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Search Section */
+#search {
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+/* Attribute Selector */
+input[type="text"] {
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+/* Focus Pseudo-Class */
+input[type="text"]:focus {
+    background-color: #fff2c7;
+}
+
+/* Button and Hover */
+button {
+    padding: 8px 15px;
+    background-color: #1f3a5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f2c14e;
+    color: black;
+}
+
+/* Dashboard */
+#dashboard {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+/* Relative Position */
+.card {
+    position: relative;
+    display: inline-block;
+    width: 23%;
+    padding: 15px;
+    margin: 5px;
+    background-color: #eef3f8;
+    border: 1px solid #ccc;
+}
+
+/* Absolute Position */
+.card::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: #f2c14e;
+    border-radius: 50%;
+}
+
+/* Card Hover */
+.card:hover {
+    background-color: #dce6f1;
+}
+
+/* Shortcuts */
+#shortcuts {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+/* Class Selector */
+.shortcut {
+    display: inline-block;
+    width: 30%;
+    padding: 15px;
+    margin: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Child Combinator */
+#shortcuts > h2 {
+    margin-bottom: 20px;
+}
+
+/* Adjacent Sibling Combinator */
+h2 + p {
+    color: #555;
+}
+
+/* General Sibling Combinator */
+.shortcut ~ .shortcut {
+    border-top: 4px solid #f2c14e;
+}
+
+/* Shortcut Hover */
+.shortcut:hover {
+    background-color: #eef3f8;
+}
+
+/* Footer */
+#footer {
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #1f3a5f;
+    color: white;
+    text-align: center;
+}
+
+#footer p {
+    color: white;
+}
+
+/* Fixed Position */
+#top {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+    background-color: #f2c14e;
+    color: black;
+    text-decoration: none;
+}
+
+/* Hover */
+#top:hover {
+    background-color: #1f3a5f;
+    color: white;
+}
+
+/* ==========================================================
+   NEW STYLES for the other pages (catalog, manage, borrow)
+   ========================================================== */
+
+/* White boxes for the new sections (same style as #search) */
+#catalog, #manage, #return {
+    padding: 20px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+/* Table created by JavaScript (showBooks) */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background-color: #1f3a5f;
+    color: white;
+    padding: 8px;
+}
+
+td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Error messages written by JavaScript validation */
+.error {
+    color: red;
+    font-size: 14px;
+}
+
+/* Form fields: same look as the search box */
+input[type="date"], select {
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+/* Submit button: same look as the normal button */
+input[type="submit"] {
+    padding: 8px 15px;
+    background-color: #1f3a5f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #f2c14e;
+    color: black;
+}
+
+
+/* ==========================================================
+   LOGIN and REGISTER pages
+   ========================================================== */
+
+/* The white box in the middle of the page */
+#authBox {
+    width: 400px;
+    max-width: 90%;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+/* Password input: same look as the text input */
+input[type="password"] {
+    padding: 8px;
+    border: 1px solid gray;
+}
+
+input[type="password"]:focus {
+    background-color: #fff2c7;
+}

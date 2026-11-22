@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Collect with Token | City Public Library</title>
+<link rel="stylesheet" href="../css/user/collect.css">
+</head>
+<body>
+
+<h1>Collect with Token</h1>
+<ul class="nav">
+  <li><a href="home.html">Home</a></li>
+  <li><a href="apply.html">Apply for a Book</a></li>
+  <li><a href="collect.html" aria-current="page">Collect with Token</a></li>
+  <li><a href="notices.html">My Notices</a></li>
+  <li><a href="../index.html">Main Page</a></li>
+</ul>
+<hr>
+
+<form id="collectForm">
+  <fieldset>
+    <legend>Token Check</legend>
+    <p><label for="cm">Member ID</label><br>
+    <input type="text" id="cm" required></p>
+    <p><label for="ct">Token</label><br>
+    <input type="text" id="ct" pattern="[Tt][Kk][Nn]-[0-9]{4}" placeholder="TKN-0000" autocomplete="off" required></p>
+    <button type="submit">Collect Book</button>
+  </fieldset>
+</form>
+
+<p id="msg" role="status"></p>
+<p><small>A token works once and stops working 7 days after it was issued.</small></p>
+
+<script src="../js/user/collect.js"></script>
+</body>
+</html>

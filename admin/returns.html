@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loans and Returns | City Public Library</title>
+<link rel="stylesheet" href="../css/admin/returns.css">
+</head>
+<body>
+
+<h1>Loans and Returns</h1>
+<ul class="nav">
+  <li><a href="home.html">Overview</a></li>
+  <li><a href="applications.html">Applications</a></li>
+  <li><a href="returns.html" aria-current="page">Loans and Returns</a></li>
+  <li><a href="login.html">Sign Out</a></li>
+</ul>
+<hr>
+
+<p id="msg" role="status"></p>
+
+<div class="table-wrap">
+<table border="1" cellpadding="8" cellspacing="0">
+  <caption>Books currently on loan</caption>
+  <thead>
+    <tr><th>Loan No.</th><th>Token</th><th>Member</th><th>Book</th><th>Collected</th><th>Return by</th><th>State</th><th>Action</th></tr>
+  </thead>
+  <tbody id="loanBody"></tbody>
+</table>
+</div>
+
+<h2>Reminders for tomorrow</h2>
+<ol id="remindList"></ol>
+
+<div class="table-wrap">
+<table border="1" cellpadding="8" cellspacing="0">
+  <caption>Returned books</caption>
+  <thead>
+    <tr><th>Loan No.</th><th>Member</th><th>Book</th><th>Returned on</th><th>Result</th></tr>
+  </thead>
+  <tbody id="pastBody"></tbody>
+</table>
+</div>
+
+<script src="../js/admin/returns.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Overview | City Public Library</title>
+<link rel="stylesheet" href="../css/admin/home.css">
+</head>
+<body>
+
+<h1>Staff Overview</h1>
+<ul class="nav">
+  <li><a href="home.html" aria-current="page">Overview</a></li>
+  <li><a href="applications.html">Applications</a></li>
+  <li><a href="returns.html">Loans and Returns</a></li>
+  <li><a href="login.html">Sign Out</a></li>
+</ul>
+<hr>
+
+<div class="table-wrap">
+<table border="1" cellpadding="8" cellspacing="0">
+  <caption>Today at a glance</caption>
+  <tr><th>Waiting applications</th><td id="cWaiting">0</td></tr>
+  <tr><th>Books on loan</th><td id="cLoans">0</td></tr>
+  <tr><th>Due tomorrow</th><td id="cTomorrow">0</td></tr>
+  <tr><th>Overdue</th><td id="cOverdue">0</td></tr>
+</table>
+</div>
+
+<form id="dateForm">
+  <fieldset>
+    <legend>Working Date</legend>
+    <p>Change the date to check the day-6 reminder and overdue books.</p>
+    <p><label for="workDate">Date</label>
+    <input type="date" id="workDate" required>
+    <button type="submit">Set Date</button>
+    <button type="button" id="dateReset">Use Real Date</button></p>
+  </fieldset>
+</form>
+
+<script src="../js/admin/home.js"></script>
+</body>
+</html>

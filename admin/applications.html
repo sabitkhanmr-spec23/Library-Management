@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Applications | City Public Library</title>
+<link rel="stylesheet" href="../css/admin/applications.css">
+</head>
+<body>
+
+<h1>Applications</h1>
+<ul class="nav">
+  <li><a href="home.html">Overview</a></li>
+  <li><a href="applications.html" aria-current="page">Applications</a></li>
+  <li><a href="returns.html">Loans and Returns</a></li>
+  <li><a href="login.html">Sign Out</a></li>
+</ul>
+<hr>
+
+<p id="msg" role="status"></p>
+
+<div class="table-wrap">
+<table border="1" cellpadding="8" cellspacing="0">
+  <caption>Waiting for a decision</caption>
+  <thead>
+    <tr><th>No.</th><th>Member</th><th>Book</th><th>Applied on</th><th>Decision</th></tr>
+  </thead>
+  <tbody id="appBody"></tbody>
+</table>
+</div>
+
+<br>
+
+<div class="table-wrap">
+<table border="1" cellpadding="8" cellspacing="0">
+  <caption>Already decided</caption>
+  <thead>
+    <tr><th>No.</th><th>Member</th><th>Book</th><th>Result</th><th>Token</th></tr>
+  </thead>
+  <tbody id="doneBody"></tbody>
+</table>
+</div>
+
+<script src="../js/admin/applications.js"></script>
+</body>
+</html>

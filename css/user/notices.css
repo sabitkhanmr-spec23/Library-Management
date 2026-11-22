@@ -1,0 +1,260 @@
+/* My Notices page (user/notices.html). */
+
+/* ======== common look (same on every page) ======== */
+/* City Public Library: BASE stylesheet, loaded on every page.
+   Page-specific styles live in their own file (css/index.css, css/user/*.css, css/admin/*.css).
+   Layout: single centred column. Heading, menu bar, then cards (forms) and
+   scrolling tables. Everything is styled by element or id, so rows and
+   messages that js/app.js adds pick up the look without extra classes. */
+
+:root {
+  color-scheme: light;
+  --bg: #F1F4F2;
+  --surface: #FFFFFF;
+  --surface-2: #F6F9F7;
+  --ink: #14211D;
+  --muted: #55655F;
+  --line: #D3DCD7;
+  --accent: #0F5C4D;
+  --accent-hover: #0B4A3E;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #E1EFEA;
+  --focus: #2F6FDE;
+  --ok-bg: #D9F0E3;   --ok-fg: #0E5A32;
+  --warn-bg: #FFF0C2; --warn-fg: #6B4B00;
+  --bad-bg: #FBDDDA;  --bad-fg: #9A211A;
+  --shadow: 0 1px 2px rgba(20, 33, 29, .06), 0 6px 18px rgba(20, 33, 29, .05);
+  --radius: 12px;
+  --f-head: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --f-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0E1815;
+    --surface: #16231F;
+    --surface-2: #1B2B26;
+    --ink: #E7EEEA;
+    --muted: #9BADA5;
+    --line: #2B3C36;
+    --accent: #6FD0B6;
+    --accent-hover: #8EE0CA;
+    --accent-ink: #07211A;
+    --accent-soft: #1D3A32;
+    --focus: #7FB0FF;
+    --ok-bg: #143A29;   --ok-fg: #8EDDB0;
+    --warn-bg: #3B2F0B; --warn-fg: #F3D27A;
+    --bad-bg: #401B19;  --bad-fg: #F6A9A3;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 22px rgba(0, 0, 0, .3);
+  }
+}
+
+/* ---------- base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding: 1.75rem max(1rem, env(safe-area-inset-right)) 3rem max(1rem, env(safe-area-inset-left));
+  background: var(--bg);
+  color: var(--ink);
+  font: 1rem/1.55 var(--f-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--f-head);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  text-wrap: balance;
+}
+h1 { margin: 0 0 1rem; font-size: clamp(1.75rem, 4.5vw, 2.35rem); }
+h2 { margin: 2rem 0 .75rem; font-size: 1.35rem; }
+p  { margin: .5rem 0; max-width: 65ch; }
+small { color: var(--muted); }
+
+a { color: var(--accent); text-underline-offset: .2em; }
+a:hover { color: var(--accent-hover); }
+
+hr { margin: 1.25rem 0 1.5rem; border: 0; border-top: 1px solid var(--line); }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* ---------- menu bar ---------- */
+ul.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: 0;
+  padding: .4rem;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+ul.nav a {
+  display: block;
+  padding: .5rem .9rem;
+  border-radius: 8px;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: .95rem;
+  text-decoration: none;
+  transition: background-color .15s, color .15s;
+}
+ul.nav a:hover { background: var(--surface-2); color: var(--accent); }
+ul.nav a[aria-current="page"] { background: var(--accent); color: var(--accent-ink); }
+ul.nav li:last-child { margin-left: auto; }          /* Sign Out / Main Page sits at the far end */
+@media (max-width: 520px) { ul.nav li:last-child { margin-left: 0; } }
+
+/* ---------- forms ---------- */
+form { margin: 1rem 0; }
+fieldset {
+  min-width: 0;
+  margin: 0 0 1rem;
+  padding: 1rem 1.25rem 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+legend {
+  padding: 0 .5rem;
+  font: 700 .8rem/1.2 var(--f-body);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+label { display: inline-block; margin-bottom: .3rem; font-weight: 600; font-size: .92rem; }
+
+input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+  width: 100%;
+  max-width: 30rem;
+  padding: .6rem .75rem;
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color .15s, box-shadow .15s;
+}
+input::placeholder { color: var(--muted); opacity: .85; }
+input:hover { border-color: var(--muted); }
+input:focus {
+  outline: none;
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 28%, transparent);
+}
+input:user-invalid { border-color: var(--bad-fg); }
+
+button {
+  padding: .6rem 1.1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color .15s, border-color .15s, transform .1s;
+}
+button:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+button:active { transform: translateY(1px); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+button[type="reset"], button[type="button"] {
+  color: var(--ink);
+  background: transparent;
+  border-color: var(--line);
+}
+button[type="reset"]:hover, button[type="button"]:hover { background: var(--surface-2); border-color: var(--muted); }
+
+/* ---------- status message line ---------- */
+#msg {
+  margin: 1rem 0;
+  padding: .75rem 1rem;
+  max-width: 65ch;
+  color: var(--ink);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 10px;
+}
+#msg:empty { display: none; }
+#msg.ok, #msg.success, #msg[data-state="ok"]   { color: var(--ok-fg);   background: var(--ok-bg);   border-color: transparent; }
+#msg.warn, #msg[data-state="warn"]             { color: var(--warn-fg); background: var(--warn-bg); border-color: transparent; }
+#msg.err, #msg.error, #msg[data-state="error"] { color: var(--bad-fg);  background: var(--bad-bg);  border-color: transparent; }
+
+/* ---------- tables ---------- */
+/* Each table sits in .table-wrap, which draws the card and scrolls sideways
+   on its own, so a wide table never pushes the page wider than the screen. */
+.table-wrap {
+  max-width: 100%;
+  margin: 0 0 1.5rem;
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+table { width: 100%; margin: 0; border: 0; border-collapse: collapse; }   /* border: 0 cancels the border="1" attribute in the HTML */
+table:has(thead) { min-width: 40rem; }
+caption {
+  padding: .9rem 1rem .6rem;
+  text-align: left;
+  font: 700 1.05rem/1.2 var(--f-head);
+  color: var(--ink);
+}
+th, td {
+  padding: .65rem 1rem;
+  text-align: left;
+  vertical-align: middle;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+th {
+  white-space: nowrap;
+  font: 600 .72rem/1.2 var(--f-body);
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface-2);
+}
+tbody tr:hover td { background: var(--surface-2); }
+td { font-variant-numeric: tabular-nums; }
+/* action buttons inside tables are always solid, whatever type the script gives them */
+td button, td button[type="button"] {
+  padding: .35rem .75rem;
+  font-size: .88rem;
+  color: var(--accent-ink);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+td button:hover, td button[type="button"]:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+td button + button { margin-left: .4rem; }
+td:empty::before { content: "none"; color: var(--muted); }
+
+
+/* ---------- lists and blocks ---------- */
+ol, ul:not(.nav) { max-width: 65ch; padding-left: 1.5rem; }
+li { margin: .3rem 0; }
+
+
+hr + address { margin-top: 0; padding-top: 0; border-top: 0; }   /* the hr already draws the line */
+address {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-style: normal;
+  font-size: .92rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* ======== only for this page ======== */
+/* ---------- results area filled by js/user/notices.js ---------- */
+#results { margin-top: 1rem; }
+#results > * { margin-bottom: .75rem; }

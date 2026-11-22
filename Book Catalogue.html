@@ -40,10 +40,12 @@
 
     <label for="searchBox">Search (title or author):</label>
     <input type="text" id="searchBox" name="searchBox" placeholder="e.g. Clean Code or Robert Martin">
+    <span id="searchError" class="error-msg"></span>
     <br><br>
 
     <label for="categoryFilter">Category:</label>
     <input type="text" id="categoryFilter" name="categoryFilter" list="categories" placeholder="Select a category">
+    <span id="categoryError" class="error-msg"></span>
     <datalist id="categories">
       <option value="All">
       <option value="Science">
@@ -54,13 +56,13 @@
     <br><br>
 
     <label>
-      <input type="checkbox" id="availableOnly" name="availableOnly">
+      <input type="checkbox" id="availableOnly" name="availableOnly" onchange="searchBooks()">
       Show available books only
     </label>
     <br><br>
 
-    <button type="button" id="searchBtn">Search</button>
-    <button type="reset" id="resetBtn">Reset</button>
+    <button type="button" id="searchBtn" onclick="searchBooks()">Search</button>
+    <button type="button" id="resetBtn" onclick="resetSearch()">Reset</button>
   </div>
 
   <hr>
@@ -69,9 +71,9 @@
   <div id="summary">
     <h3>Catalogue Summary</h3>
     <p>
-      Total Books: <span id="totalBooks"><b>4</b></span> &nbsp;|&nbsp;
-      Available: <span id="availableBooks"><b>3</b></span> &nbsp;|&nbsp;
-      Borrowed: <span id="borrowedBooks"><b>1</b></span>
+      Total Books: <span id="totalBooks">4</span> &nbsp;|&nbsp;
+      Available: <span id="availableBooks">3</span> &nbsp;|&nbsp;
+      Borrowed: <span id="borrowedBooks">1</span>
     </p>
   </div>
 
@@ -84,61 +86,64 @@
     <!-- Book 1 -->
     <div class="book-card" id="book1">
       <img src="Clean code.jpg" alt="Cover of Clean Code" width="120" height="160">
-      <h4>Clean Code</h4>
+      <h4 id="title1">Clean Code</h4>
       <p>
-        <b>Author:</b> Robert C. Martin<br>
-        <b>Category:</b> <span class="category">Technology</span><br>
-        <b>Status:</b> <span class="status available"><b>Available</b></span>
+        <b>Author:</b> <span id="author1">Robert C. Martin</span><br>
+        <b>Category:</b> <span class="category" id="category1">Technology</span><br>
+        <b>Status:</b> <span class="status available" id="status1">Available</span>
       </p>
       <p><i>A handbook of agile software craftsmanship.</i></p>
       <a href="book-details.html?id=1">View Details</a>
-      <button type="button">Borrow</button>
+      <button type="button" id="btn1" onclick="borrowBook(1)">Borrow</button>
     </div>
     <br>
 
     <!-- Book 2 -->
     <div class="book-card" id="book2">
       <img src="Brief.jpg" alt="Cover of A Brief History of Time" width="120" height="160">
-      <h4>A Brief History of Time</h4>
+      <h4 id="title2">A Brief History of Time</h4>
       <p>
-        <b>Author:</b> Stephen Hawking<br>
-        <b>Category:</b> <span class="category">Science</span><br>
-        <b>Status:</b> <span class="status available"><b>Available</b></span>
+        <b>Author:</b> <span id="author2">Stephen Hawking</span><br>
+        <b>Category:</b> <span class="category" id="category2">Science</span><br>
+        <b>Status:</b> <span class="status available" id="status2">Available</span>
       </p>
       <p><i>From the Big Bang to black holes.</i></p>
       <a href="book-details.html?id=2">View Details</a>
-      <button type="button">Borrow</button>
+      <button type="button" id="btn2" onclick="borrowBook(2)">Borrow</button>
     </div>
     <br>
 
     <!-- Book 3 -->
     <div class="book-card" id="book3">
       <img src="Alchemist.jpg" alt="Cover of The Alchemist" width="120" height="160">
-      <h4>The Alchemist</h4>
+      <h4 id="title3">The Alchemist</h4>
       <p>
-        <b>Author:</b> Paulo Coelho<br>
-        <b>Category:</b> <span class="category">Fiction</span><br>
-        <b>Status:</b> <span class="status borrowed"><b>Borrowed</b></span>
+        <b>Author:</b> <span id="author3">Paulo Coelho</span><br>
+        <b>Category:</b> <span class="category" id="category3">Fiction</span><br>
+        <b>Status:</b> <span class="status borrowed" id="status3">Borrowed</span>
       </p>
       <p><i>A shepherd boy's journey in search of his dream.</i></p>
       <a href="book-details.html?id=3">View Details</a>
-      <button type="button" disabled>Not Available</button>
+      <button type="button" id="btn3" disabled>Not Available</button>
     </div>
     <br>
 
     <!-- Book 4 -->
     <div class="book-card" id="book4">
       <img src="Sapiens.jpg" alt="Cover of Sapiens" width="120" height="160">
-      <h4>Sapiens: A Brief History of Humankind</h4>
+      <h4 id="title4">Sapiens: A Brief History of Humankind</h4>
       <p>
-        <b>Author:</b> Yuval Noah Harari<br>
-        <b>Category:</b> <span class="category">History</span><br>
-        <b>Status:</b> <span class="status available"><b>Available</b></span>
+        <b>Author:</b> <span id="author4">Yuval Noah Harari</span><br>
+        <b>Category:</b> <span class="category" id="category4">History</span><br>
+        <b>Status:</b> <span class="status available" id="status4">Available</span>
       </p>
       <p><i>How Homo sapiens came to dominate the world.</i></p>
       <a href="book-details.html?id=4">View Details</a>
-      <button type="button">Borrow</button>
+      <button type="button" id="btn4" onclick="borrowBook(4)">Borrow</button>
     </div>
+
+    <!-- Shown by JavaScript when no book matches the search -->
+    <p id="noResults">No books found. Try a different search.</p>
   </div>
 
   <hr>
@@ -156,5 +161,6 @@
     </p>
   </div>
 
+  <script src="Book Script.js" defer></script>
 </body>
 </html>

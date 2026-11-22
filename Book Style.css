@@ -186,6 +186,7 @@ h4 { font-size: 1.15rem; }
   border-radius: 20px;
   background-color: #1f3a5f;
   color: #ffffff;
+  font-weight: 700;
 }
 
 /* Individual ID selectors for each count */
@@ -283,6 +284,7 @@ h4 { font-size: 1.15rem; }
   padding: 1px 10px;
   border-radius: 12px;
   color: #ffffff;
+  font-weight: 700;
 }
 
 .available { background-color: #2e8b57; }
@@ -407,6 +409,37 @@ input[type="checkbox"] {
   margin-right: 6px;
   vertical-align: middle;
   accent-color: #1f3a5f;
+}
+
+
+/* ---------- MESSAGES USED BY JAVASCRIPT ---------- */
+
+/* validation error text under an input */
+.error-msg {
+  flex-basis: 100%;         /* message gets its own line */
+  color: #c0392b;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* hide the empty error span so it takes no space */
+.error-msg:empty {
+  display: none;
+}
+
+/* red border for an invalid input (class added by JavaScript) */
+input[type="text"].invalid {
+  border-color: #c0392b;
+}
+
+/* "No books found" message (hidden until JavaScript shows it) */
+#noResults {
+  display: none;
+  grid-column: 1 / -1;      /* span the full grid width */
+  text-align: center;
+  padding: 20px;
+  font-weight: 600;
+  color: #c0392b;
 }
 
 

@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Library Management System</title>
 
-    <!-- Link the external CSS file -->
+   
     <link rel="stylesheet" href="Library.css">
 </head>
 <body>
 
-    <!-- ===== HEADER: only the title ===== -->
+ 
     <header id="header">
         <h2>Library Management System</h2>
     </header>
 
-    <!-- ===== MAIN CONTENT ===== -->
+  
     <main id="main">
 
         <div id="authBox">
             <h1>Create Account</h1>
 
-            <!-- action="login.html": after a valid registration, the browser opens the Login page.
-                 If validateRegister() returns false, the form is not sent. -->
             <form action="login.html" onsubmit="return validateRegister()">
 
                 <label for="fullName">Full Name:</label><br>
@@ -45,7 +43,7 @@
                 <span id="confirmPasswordError" class="error"></span>
                 <br>
 
-                <!-- onclick shows or hides BOTH password boxes -->
+              
                 <input type="checkbox" id="showRegPass"
                        onclick="togglePassword('password', 'showRegPass'); togglePassword('confirmPassword', 'showRegPass')">
                 <label for="showRegPass" style="font-weight: normal;">Show passwords</label>
@@ -64,13 +62,12 @@
 
     </main>
 
-    <!-- ===== FOOTER ===== -->
     <footer id="footer">
         <p><b>Web Technologies</b> | Group 03 | Section Y</p>
         <p>American International University-Bangladesh (AIUB)</p>
     </footer>
 
-    <!-- Link the JavaScript file for the login and register pages -->
+   
     <script src="auth.js"></script>
 
 </body>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Library - Add Book</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><div class="bar">
+    <h1>Library Management</h1>
+    <nav><a href="index.html">Manage Books</a><a class="active" href="add-book.html">Add Book</a></nav>
+  </div></header>
+
+  <main>
+    <div class="card">
+      <h2 id="formTitle" style="margin-top:0">Add a new book</h2>
+      <form id="bookForm" novalidate>
+        <label>Title <input name="title" type="text"><span class="err" id="titleErr"></span></label>
+        <label>Author <input name="author" type="text"><span class="err" id="authorErr"></span></label>
+        <label>Category
+          <select name="category">
+            <option>Novel</option><option>Poetry</option><option>Science</option>
+            <option>Technology</option><option>History</option><option>Other</option>
+          </select>
+        </label>
+        <label>ISBN <input name="isbn" type="text"></label>
+        <label>Status
+          <select name="status"><option>Available</option><option>Issued</option></select>
+        </label>
+        <div class="actions">
+          <button class="btn" id="saveBtn" type="submit">Save book</button>
+          <a class="btn ghost" href="index.html">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="storage.js"></script>
+  <script src="form.js"></script>
+</body>
+</html>
